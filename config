@@ -47,15 +47,19 @@ workspace_layout default
 # extra options for windows: #
 ##############################
 
-# Border indicator on windows:
-new_window pixel 1
+# Default border styles for new windowses
+# Using `pixel` disables titlebars, which is NEEDED when using i3-gaps!
+default_border          pixel 1
+default_floating_border pixel 5
 
-# Thin borders
-# hide_edge_borders both
+# Use thin borders when there is only one window visible
+hide_edge_borders smart
 
 # Set inner/outer gaps (works with i3-gaps!)
-gaps inner 2
-gaps outer 2
+gaps inner 5        # gap between windowses besides aech other
+gaps outer 0        # gap between screen edge and widowses (added to inner gap!)
+smart_borders on    # disable borders for single windowses
+smart_gaps    on    # disable gaps if only one windows is visible
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -166,6 +170,9 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# Focus on the latest urgent window
+bindsym $mod+x [urgent=latest] focus
 
 # Move focused window
 bindsym $mod+Shift+j move left
