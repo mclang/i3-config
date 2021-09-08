@@ -385,9 +385,9 @@ client.urgent           $urgentred  $urgentred  $white      $purple     $yellowb
 # (plus the system information i3status finds out, if available)
 bar {
     # Try `Font Awesome 5 Free Solid 10` if glyphs don't work
-    font pango:Noto Sans Regular 10, FontAwesome 10
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    font pango:Noto Sans Regular 12, Font Awesome 5 Free 12
     position top
+    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rust.toml
     # i3bar_command i3bar --transparency
     # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
     # reference: https://i3wm.org/docs/userguide.html#_tray_output
