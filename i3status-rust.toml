@@ -30,7 +30,7 @@ interval = 1
 block = "memory"
 display_type = "memory"
 format_mem = "{mem_used_percents}"
-format_swap = "{swap_used_percents} ({swap_free}/{swap_total})"
+format_swap = "{swap_used_percents} ({swap_used}/{swap_total})"
 
 # Uses `nvidia-smi` so might draw some extra power?
 # [[block]]
@@ -54,6 +54,11 @@ alert = 10.0
 
 [[block]]
 block = "backlight"
+
+[[block]]
+block = "custom"
+cycle = ["gammastep -x; echo \uf186", "gammastep -O 3500; echo \uf2a8"]
+interval = "once"
 
 [[block]]
 block = "battery"
