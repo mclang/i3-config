@@ -262,9 +262,10 @@ workspace $ws1 output primary
 # workspace $ws5 output HDMI-0
 workspace $ws10 output primary
 
-# Bind program to workspace and focus to them on startup:
-# Use `xprop | grep 'WM_CLASS'` to find the needed string
-assign [class="Xfce4-terminal"] $ws1
+# Bind programs to workspaces and focus them automatically if the workspace is different than current one.
+# Use `xprop | grep 'WM_CLASS'` to find the needed string.
+# Note that some programs like Firefox update the title after window is created, so `assign` doesn't work!
+# assign [class="Xfce4-terminal"] $ws1
 assign [class="(?i)firefox"] $ws2
 # assign [class="Thunar"] $ws3
 assign [class="(?i)discord"] $ws4
@@ -272,12 +273,12 @@ assign [class="(?i)signal"]  $ws4
 assign [class="(?i)slack"]   $ws4
 assign [class="(?i)Steam"]   $ws9
 
-# automatic focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
-#for_window [class=Thunderbird] focus
-#for_window [class=TelegramDesktop] focus
+
+# Move ANY Firefox window with Twitch/Youtube title into workspace 10:
+# for_window [class="(?i)firefox" title="Youtube"] move to workspace $ws10
 
 # Move whole workspace between monitors
 bindsym $mod+Control+Shift+Left  move workspace to output left
@@ -341,6 +342,8 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
+for_window [title="Event Tester"] floating enable                       # `xev` keyboard event tester
+for_window [class=(?i)gramps title="Tip of the Day"] floating enable    # Gramps 'tip of the day' window
 
 # Set floating for misc app dialogs that are not recognized automatically
 #   https://wiki.archlinux.org/title/I3#Correct_handling_of_floating_dialogs
@@ -348,8 +351,8 @@ for_window [class="Pamac-manager"] floating enable
 #   https://regex101.com/
 # for_window [class="Steam"] fullscreen enable
 for_window [class="Steam" title="^Friends"] floating enable
-# for_window [class="Steam" title="^Steam \- News"] floating enable doesnt work :/
-# for_window [class="Steam" title="^PayPal"] floating enable
+for_window [class="Steam" title="^Steam \- News"] floating enable
+for_window [class="Steam" title="^PayPal"] floating enable
 
 
 ######################################
