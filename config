@@ -140,10 +140,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10
 bindsym $mod+Return exec alacritty
 
 # Kill focused window
-bindsym $mod+c kill
+bindsym $mod+q kill
 
 # Open exit-menu
-bindsym $mod+Shift+e exec ~/.config/i3/scripts/shutdown_menu -p rofi -c
+bindsym $mod+Shift+End exec ~/.config/i3/scripts/shutdown_menu -p rofi -c
 
 # Lock the system either by using an image or by blurring.
 # NOTE: Using image needs some work for multimonitor setup.
