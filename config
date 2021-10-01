@@ -136,9 +136,6 @@ bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.config/i3/scripts/asusctl-
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight +10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10
 
-# Start a terminal
-bindsym $mod+Return exec alacritty
-
 # Kill focused window
 bindsym $mod+q kill
 
@@ -230,9 +227,10 @@ bindsym XF86AudioPrev  exec --no-startup-id playerctl previous
 
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
-bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec "flameshot gui"
+bindsym $mod+Return exec /usr/bin/alacritty
+bindsym $mod+w      exec /usr/bin/firefox
+bindsym $mod+n      exec /usr/bin/thunar
+bindsym Print       exec "flameshot gui"
 
 
 ##########################################
