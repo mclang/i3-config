@@ -123,18 +123,23 @@ bindsym $mod+r mode "resize"
 # $ xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 # ```
 
+# Change keyboard LED brightness using `Fn+F2/F3` keys:
+bindsym XF86KbdBrightnessUp   exec --no-startup-id ~/.config/i3/scripts/asusctl-kbd-bright.sh up
+bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.config/i3/scripts/asusctl-kbd-bright.sh down
+
 # Cycle keyboard LED modes using the 'Aura' key (`Fn+F4`)
 bindsym XF86Launch3 exec --no-startup-id asusctl led-mode -n
 
-# Cycle power profiles using `Fn+F5`
+# Cycle power profiles using `Fan` key (`Fn+F5`)
 bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
-
-bindsym XF86KbdBrightnessUp   exec --no-startup-id ~/.config/i3/scripts/asusctl-kbd-bright.sh up
-bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.config/i3/scripts/asusctl-kbd-bright.sh down
 
 # Install `acpilight` and add user into `video` group
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight +10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10
+
+# Toggle external monitor using `Fn+F9` that Asus FW sends as `meta+p`
+bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/toggle-monitors.sh
+
 
 # Kill focused window
 bindsym $mod+q kill
@@ -372,6 +377,7 @@ set $mediumgrey     #8b8b8b
 set $yellowbrown    #e1b700
 
 # Define colors for windows:
+# https://i3wm.org/docs/userguide.html#_changing_colors
 # class                 border      bground     text        indicator   child_border
 client.focused          $lightblue  $darkblue   $white      $purple     $mediumgrey
 client.unfocused        $darkblue   $darkblue   $grey       $purple     $darkgrey
