@@ -14,6 +14,6 @@ i3-msg "workspace $WSNAME; append_layout ~/.config/i3/layouts/workspace-4.json"
 
 # Start apps in the background:
 nohup /var/lib/flatpak/exports/bin/com.slack.Slack > /dev/null 2>&1 &
-nohup /usr/bin/discord                             > /dev/null 2>&1 &
+nohup /var/lib/flatpak/exports/bin/com.discordapp.Discord > /dev/null 2>&1 &
 nohup /usr/bin/signal-desktop                      > /dev/null 2>&1 &
 
