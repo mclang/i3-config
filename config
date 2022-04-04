@@ -364,9 +364,10 @@ for_window [class="(?i)gramps" title="Tip of the Day"] floating enable  # Gramps
 #   https://wiki.archlinux.org/title/I3#Correct_handling_of_floating_dialogs
 #   https://www.debuggex.com/cheatsheet/regex/pcre
 #   https://regex101.com/
+for_window [class="Steam" title="^Account Alert for"]       floating enable
 for_window [class="Steam" title="^Friends"]                 floating enable
-for_window [class="Steam" title="^Steam \- News"]           floating enable
 for_window [class="Steam" title="^PayPal"]                  floating enable
+for_window [class="Steam" title="^Steam \- News"]           floating enable
 for_window [class="Steam" title="^Steam \- Self Updater"]   floating enable
 for_window [class="Steam" title="event started"]            floating enable
 for_window [class="(?i)firefox" title="^Page Info"]         floating enable
