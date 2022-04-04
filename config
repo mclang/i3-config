@@ -332,8 +332,12 @@ exec --no-startup-id nitrogen --restore
 # Set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
-# Desktop notifications
+# Desktop notifications using `dunst` and `dunstctl`:
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+bindsym $mod+Escape       exec --no-startup-id /usr/bin/dunstctl close
+# bindsym $mod+Shift+Escape exec --no-startup-id /usr/bin/dunstctl close-all
+bindsym $mod+Shift+Escape exec --no-startup-id /usr/bin/dunstctl history-pop
+# bindsym $mod+F12          exec notify-send "Notification Title" "Notification Messages"
 
 # Autostart apps as you like
 #exec --no-startup-id sleep 2 && xfce4-terminal
