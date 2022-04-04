@@ -112,6 +112,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Touching mouse accidentally changes focused window, so disable 'focus follows mouse'. Clicking works still though as it should.
+# Mouse warping in other hand is quite usefull when having multiple monitors, it keeps cursor near the action... I think.
+focus_follows_mouse no
+mouse_warping output
+
 
 ######################################
 # keybindings for different actions: #
