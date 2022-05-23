@@ -147,8 +147,7 @@ bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/toggle-monitors.sh
 
 
 # Kill focused window
-bindsym $mod+Delete kill
-bindsym $mod+F4     kill
+bindsym $mod+q      kill
 
 # Open exit-menu
 bindsym $mod+Shift+End exec ~/.config/i3/scripts/shutdown_menu -p rofi -c
