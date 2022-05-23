@@ -343,12 +343,12 @@ bindsym $mod+Shift+Escape exec --no-startup-id /usr/bin/dunstctl history-pop
 #exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
 
-# Set floating (nontiling) for apps needing it
+# Set floating (nontiling) for apps NEEDING it
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 
-# Set floating (nontiling) for special apps
+# Set floating (nontiling) for apps that work better when floating
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
@@ -357,7 +357,7 @@ for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enabl
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [title="Event Tester"] floating enable                       # `xev` keyboard event tester
-for_window [class="(?i)gramps" title="Tip of the Day"] floating enable  # Gramps 'tip of the day' window
+for_window [class="Arandr"] floating enable                             # Screen Layout Editor
 
 # Set floating for misc app dialogs that are not recognized automatically
 #   https://wiki.archlinux.org/title/I3#Correct_handling_of_floating_dialogs
@@ -370,6 +370,7 @@ for_window [class="Steam" title="^Steam \- News"]           floating enable
 for_window [class="Steam" title="^Steam \- Self Updater"]   floating enable
 for_window [class="Steam" title="event started"]            floating enable
 for_window [class="(?i)firefox" title="^Page Info"]         floating enable
+for_window [class="(?i)gramps" title="Tip of the Day"]      floating enable # Gramps 'tip of the day' window
 
 
 ######################################
