@@ -14,7 +14,7 @@
 #
 
 #######################
-# config starts here: #
+# config starts here  #
 #######################
 
 # Font for window titles.
@@ -23,12 +23,12 @@
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Noto Sans Regular 10
 
-# Set the mod key to the winkey:
+# Set the mod key to the windows/duck/tux key:
 set $mod Mod4
 
 
 #####################
-# workspace layout: #
+# workspace layout  #
 #####################
 
 # Default i3 tiling mode:
@@ -44,7 +44,7 @@ workspace_layout default
 
 
 ##############################
-# extra options for windows: #
+# extra options for windows  #
 ##############################
 
 # Default border styles for new windowses
@@ -119,7 +119,7 @@ mouse_warping output
 
 
 ######################################
-# keybindings for different actions: #
+# keybindings for different actions  #
 ######################################
 
 ## Asus Zephyrus G14 keybindings
@@ -164,7 +164,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Keybinding list in editor:
-bindsym $mod+F1 exec xed ~/.config/i3/keybindings
+# bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Change focus
 bindsym $mod+j focus left
@@ -203,9 +203,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking      # tabs one above another
+bindsym $mod+t layout tabbed        # tabs side by side like browser tabs
+bindsym $mod+e layout toggle split  # windowses side by side (default)
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -216,8 +216,9 @@ bindsym $mod+space focus mode_toggle
 # Focus the parent container
 bindsym $mod+a focus parent
 
-# Open new empty workspace
+# Open new empty workspace (first available)
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace.sh
+
 
 ## Multimedia Keys
 
@@ -245,7 +246,7 @@ bindsym Print       exec "flameshot gui"
 
 
 ##########################################
-# configuration for workspace behaviour: #
+# configuration for workspace behaviour  #
 ##########################################
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -271,7 +272,7 @@ workspace $ws1 output primary
 # workspace $ws5 output HDMI-0
 workspace $ws10 output primary
 
-# Bind programs to workspaces and focus them automatically if the workspace is different than current one.
+# Bind programs to workspaces and focus them automatically if the workspace is different than the current one.
 # Use `xprop | grep 'WM_CLASS'` to find the needed string.
 # Note that some programs like Firefox update the title after window is created, so `assign` doesn't work!
 # assign [class="Xfce4-terminal"] $ws1
@@ -297,7 +298,7 @@ bindsym $mod+Control+Shift+Right move workspace to output right
 
 
 #############################################
-# autostart applications/services on login: #
+# autostart applications/services on login  #
 #############################################
 
 # Get auth work with polkit-gnome
@@ -465,10 +466,10 @@ bar {
 
 
 #####################################
-# Application menu handled by rofi: #
+# Application menu handled by rofi  #
 #####################################
 
-## rofi bindings fancy application menu (two bindings F9/$mod+d)
+## rofi bindings fancy application menu (three bindings: `/`, `F9` and `$mod+d`)
 
 bindsym $mod+slash exec rofi -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
