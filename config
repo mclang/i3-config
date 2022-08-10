@@ -122,6 +122,8 @@ mouse_warping output
 # keybindings for different actions  #
 ######################################
 
+# NOTE: Do NOT put comments on the SAME LINE after the keybindins unless you want ERRORS
+
 ## Asus Zephyrus G14 keybindings
 # Use `xev` to get Xorg keycodes and symbol names:
 # ```
@@ -203,9 +205,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking      # tabs one above another
-bindsym $mod+t layout tabbed        # tabs side by side like browser tabs
-bindsym $mod+e layout toggle split  # windowses side by side (default)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -273,8 +275,12 @@ workspace $ws1 output primary
 workspace $ws10 output primary
 
 # Bind programs to workspaces and focus them automatically if the workspace is different than the current one.
-# Use `xprop | grep 'WM_CLASS'` to find the needed string.
-# Note that some programs like Firefox update the title after window is created, so `assign` doesn't work!
+# Notes:
+# - Use `xprop | grep 'WM_CLASS'` to find the needed `instance` and `class` strings.
+# - Some programs, most notably Firefox, update their window title AFTER it is created, so `assign` does NOT work :/
+# About command criterias:
+#   https://i3wm.org/docs/userguide.html#command_criteria
+
 # assign [class="Xfce4-terminal"] $ws1
 assign [class="(?i)firefox"] $ws2
 # assign [class="Thunar"] $ws3
@@ -372,6 +378,26 @@ for_window [class="Steam" title="^Steam \- Self Updater"]   floating enable
 for_window [class="Steam" title="event started"]            floating enable
 for_window [class="(?i)firefox" title="^Page Info"]         floating enable
 for_window [class="(?i)gramps" title="Tip of the Day"]      floating enable # Gramps 'tip of the day' window
+
+
+#########################
+# Scratchpad config     #
+#########################
+set $sp_ml    5
+set $sp_mt   30
+set $sp_h   600
+set $sp_w   900
+
+# Alacritty with smaller font:
+# NOTE: Maybe 'password of the day' and other unnecessary things should be removed?
+exec --no-startup-id "alacritty -o 'env.SIMPLE_GREET: \"true\"' -o 'font.size: 8' --title 'Alacritty Scratchpad'"
+for_window [class="Alacritty" title="Alacritty Scratchpad"] move scratchpad, move position $sp_ml $sp_mt, resize set $sp_w $sp_h
+bindsym $mod+F1 [class="Alacritty"] scratchpad show
+
+# Simple text editor for quick notes:
+exec --no-startup-id "xed --name 'Scratchpad' --standalone '/tmp/xed-scratchpad.md'"
+for_window [class="Xed" instance="Scratchpad"] move scratchpad, move position $sp_ml $sp_mt, resize set $sp_w $sp_h
+bindsym $mod+F2 [class="Xed" instance="Scratchpad"] scratchpad show
 
 
 ######################################
