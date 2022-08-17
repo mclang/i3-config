@@ -277,12 +277,14 @@ workspace $ws10 output primary
 # Bind programs to workspaces and focus them automatically if the workspace is different than the current one.
 # Notes:
 # - Use `xprop | grep 'WM_CLASS'` to find the needed `instance` and `class` strings.
-# - Some programs, most notably Firefox, update their window title AFTER it is created, so `assign` does NOT work :/
+# - Some programs, most notably Firefox, update their title AFTER it is created, so `assign` with `title` selector does NOT work :/
+# - Furthermore simple `assign` with `class` selector seems flaky, at least with Firefox...
+# - Using `for_window` without additional selector like `title` or `instance` moves ALL matching windowses when they get FOCUSED.
 # About command criterias:
 #   https://i3wm.org/docs/userguide.html#command_criteria
 
 # assign [class="Xfce4-terminal"] $ws1
-assign [class="(?i)firefox"] $ws2
+# assign [class="(?i)firefox"] $ws2
 # assign [class="Thunar"] $ws3
 assign [class="(?i)discord"] $ws4
 assign [class="(?i)signal"]  $ws4
@@ -293,8 +295,11 @@ for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
 
-# Move ANY Firefox window with Twitch/Youtube title into workspace 10:
+# Below rule moves the window annoyingly when you FOCUS it, not when it is created:
 # for_window [class="(?i)firefox" title="Youtube"] move to workspace $ws10
+
+# Because `assign` and simple `for_window` does not work properly with Firefox...
+bindsym $mod+Shift+w [class="(?i)firefox"] move window to workspace $ws2, [class="(?i)firefox"] focus
 
 # Move whole workspace between monitors
 bindsym $mod+Control+Shift+Left  move workspace to output left
