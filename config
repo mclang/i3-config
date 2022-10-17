@@ -149,7 +149,7 @@ bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/toggle-monitors.sh
 
 
 # Kill focused window
-bindsym $mod+q      kill
+bindsym $mod+Shift+q kill
 
 # Open exit-menu
 bindsym $mod+Shift+End exec ~/.config/i3/scripts/shutdown_menu -p rofi -c
@@ -242,7 +242,7 @@ bindsym XF86AudioPrev  exec --no-startup-id playerctl previous
 ## App shortcuts
 bindsym $mod+Return exec /usr/bin/alacritty
 bindsym $mod+c      exec /usr/bin/gsimplecal
-bindsym $mod+w      exec /usr/bin/firefox
+bindsym $mod+w      exec /usr/bin/firefox --ProfileManager
 bindsym $mod+n      exec /usr/bin/thunar
 bindsym Print       exec "flameshot gui"
 
