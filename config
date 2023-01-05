@@ -382,6 +382,7 @@ for_window [class="Steam" title="^Steam \- News"]           floating enable
 for_window [class="Steam" title="^Steam \- Self Updater"]   floating enable
 for_window [class="Steam" title="event started"]            floating enable
 for_window [class="(?i)firefox" title="^Page Info"]         floating enable
+for_window [class="(?i)firefox" title="^About Mozilla"]     floating enable
 for_window [class="(?i)gramps" title="Tip of the Day"]      floating enable # Gramps 'tip of the day' window
 
 
@@ -500,7 +501,7 @@ bar {
 # Application menu handled by rofi  #
 #####################################
 
-## rofi bindings fancy application menu (three bindings: `/`, `F9` and `$mod+d`)
+## rofi bindings for application menu (two bindings: `$mod+/`, and `$mod+d`)
 
 bindsym $mod+slash exec rofi -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
@@ -510,17 +511,10 @@ bindsym $mod+d exec rofi -modi drun -show drun -display-drun "Apps : " -line-pad
                 -columns 2 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
 
-bindsym F9 exec rofi -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
-                -columns 2 -padding 30 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
 
-## rofi bindings for window menu (two bindings F10/$mod+t)
+## rofi bindings for window menu (one bindings `$mod+tab`)
 
 bindsym $mod+Tab exec rofi -show window -display-window "Window : " -line-padding 4 \
-                -lines 10 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
-
-bindsym F10 exec rofi -show window -display-window "Window : " -line-padding 4 \
                 -lines 10 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
 
