@@ -169,10 +169,10 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+b focus up
-bindsym $mod+o focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+b focus up
+#bindsym $mod+o focus right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -184,10 +184,10 @@ bindsym $mod+Right focus right
 bindsym $mod+x [urgent=latest] focus
 
 # Move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+b move up
-bindsym $mod+Shift+o move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+b move up
+#bindsym $mod+Shift+o move right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -242,7 +242,7 @@ bindsym XF86AudioPrev  exec --no-startup-id playerctl previous
 ## App shortcuts
 bindsym $mod+Return exec /usr/bin/alacritty
 bindsym $mod+c      exec /usr/bin/gsimplecal
-bindsym $mod+w      exec /usr/bin/firefox --ProfileManager
+bindsym $mod+o      exec /usr/bin/firefox --ProfileManager
 bindsym $mod+n      exec /usr/bin/thunar
 bindsym Print       exec "flameshot gui"
 
