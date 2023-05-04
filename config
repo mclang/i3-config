@@ -276,7 +276,7 @@ workspace $ws10 output primary
 
 # Bind programs to workspaces and focus them automatically if the workspace is different than the current one.
 # Notes:
-# - Use `xprop | grep 'WM_CLASS'` to find the needed `instance` and `class` strings.
+# - Use `xprop | grep 'WM_CLASS'` to find the needed `instance` and `class` strings in respective order.
 # - Some programs, most notably Firefox, update their title AFTER it is created, so `assign` with `title` selector does NOT work :/
 # - Furthermore simple `assign` with `class` selector seems flaky, at least with Firefox...
 # - Using `for_window` without additional selector like `title` or `instance` moves ALL matching windowses when they get FOCUSED.
@@ -367,10 +367,11 @@ for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Nm-connection-editor"] floating enable
-for_window [title="Event Tester"] floating enable                       # `xev` keyboard event tester
-for_window [class="Arandr"] floating enable                             # Screen Layout Editor
+for_window [class="Pamac-manager"]          floating enable
+for_window [class="Nm-connection-editor"]   floating enable
+for_window [title="Event Tester"]           floating enable             # `xev` keyboard event tester
+for_window [class="Arandr"]                 floating enable             # Screen Layout Editor
+for_window [class="(?i)zoom"]               floating enable             # Catches ALL Zoom windowses
 
 # Set floating for misc app dialogs that are not recognized automatically
 #   https://wiki.archlinux.org/title/I3#Correct_handling_of_floating_dialogs
