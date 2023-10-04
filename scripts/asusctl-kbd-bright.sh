@@ -4,6 +4,8 @@
 # Original version by sarumont (sarumont#7313):
 # https://discord.com/channels/725125934759411753/740598035725418576/862727467982127166
 #
+# Not needed since 04.10.2023
+#
 current=$(asusctl -k | cut -d\  -f5)
 case $1 in
 	up)

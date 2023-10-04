@@ -3,6 +3,7 @@
 # https://github.com/FeralInteractive/gamemode
 #
 # NOTE: Symbols need Awesome terminal fonts.
+# Not used with i3status-rust (04.10.2023)
 #
 set -e
 set -u

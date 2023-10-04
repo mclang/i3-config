@@ -1,10 +1,15 @@
 #!/usr/bin/bash
-# Simple script for volume control using `pacmd` and `pactl` commands
+# Script for showing mic status queried using `pacmd` and `pactl` commands in `i3blocks`.
 #
-# Not needed as of 04.10.2023
+# Does not work as of 04.10.2023
 #
 set -e
 set -u
+
+echo "long: "
+echo "short:"
+echo "#A8FF00"
+exit 0
 
 function usage {
 	echo "ERROR: Wrong number of arguments!"
