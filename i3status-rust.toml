@@ -97,7 +97,7 @@ interval = 5
 
 [[block]]
 block = "toggle"
-format = "WG$icon "
+format = " WG$icon "
 command_state = "ip link show | grep -P '^[0-9]+: wg[^:]+:'"
 command_on    = "sudo wg-quick up wg-proton-fi0"
 command_off   = "sudo wg-quick down wg-proton-fi0"
