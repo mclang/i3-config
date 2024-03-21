@@ -51,6 +51,7 @@ format_alt = "$icon $average avg, $min min, $max max "
 # show_temperature = true
 # show_power_draw = true
 
+# Nvidia dGPU status:
 [[block]]
 block = "custom"
 command = "echo -n '\uf26c '; supergfxctl -S | tr -cd '[:alnum:]'"
@@ -83,6 +84,12 @@ block = "battery"
 format = "$icon $percentage ({$power|}, {$time|})"
 
 [[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "/usr/bin/pavucontrol"
+
+[[block]]
 block = "net"
 format     = "$icon {$signal_strength|wired}^icon_net_down$speed_down.eng(prefix:K)^icon_net_up$speed_up.eng(prefix:K)"
 format_alt = "$icon {$ssid |}$ip via $device"
@@ -91,18 +98,14 @@ interval = 5
 [[block]]
 block = "toggle"
 format = "WG$icon "
-command_state = "sudo wg show"
+command_state = "ip link show | grep -P '^[0-9]+: wg[^:]+:'"
 command_on    = "sudo wg-quick up wg-proton-fi0"
 command_off   = "sudo wg-quick down wg-proton-fi0"
 icon_on  = "lock_closed"    # awesome6-custom: "\uf023"
 icon_off = "lock_open"      # awesome6-custom: "\uf3c1"
+state_on =  "good"
+state_off = "critical"
 interval = 15
-
-[[block]]
-block = "sound"
-[[block.click]]
-button = "left"
-cmd = "/usr/bin/pavucontrol"
 
 [[block]]
 block = "time"
