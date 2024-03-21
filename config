@@ -49,7 +49,7 @@ workspace_layout default
 # extra options for windows  #
 ##############################
 
-# Default border styles for new windowses
+# Default border styles for new windows
 # Using `pixel` disables title bars, which is NEEDED when using i3-gaps!
 default_border          pixel 1
 default_floating_border pixel 5
@@ -79,8 +79,12 @@ floating_modifier $mod
 #bindsym $mod+Tab workspace next
 #bindsym $mod+Shift+Tab workspace prev
 
-# Use Alt_L+Tab to switch between two workspaces
+# Use `Alt_L+Tab` to jump between the current and the previous workspace
 bindsym Mod1+Tab  workspace back_and_forth
+
+# Use e.g `$mod+3` to jump between the third workspace and current one:
+# NOTE: Not good with multiple monitors when you connect new monitor and want to go certain workspace.
+# workspace_auto_back_and_forth yes
 
 # Switch to workspace
 bindsym $mod+1    workspace  $ws1
@@ -124,7 +128,10 @@ mode "resize" {
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape
+    # Make the current window take 50% of the width/height of parent container
+    bindsym equal resize set 50 ppt 50 ppt
+
+    # Back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -618,3 +625,4 @@ bindsym $mod+Tab   exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
 # exec --no-startup-id greenclip daemon>/dev/null
 # bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #               -config ~/.config/rofi/rofidmenu.rasi
+
